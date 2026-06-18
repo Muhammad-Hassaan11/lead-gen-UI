@@ -1,0 +1,107 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - generic [ref=e9]:
+        - generic [ref=e10]: Prospector
+        - generic [ref=e11]: Lead engine
+    - generic [ref=e12]: Workspace
+    - button "Find Leads" [active] [ref=e13] [cursor=pointer]:
+      - img [ref=e14]
+      - generic [ref=e16]: Find Leads
+    - button "Job History" [ref=e17] [cursor=pointer]:
+      - img [ref=e18]
+      - generic [ref=e20]: Job History
+    - button "Saved Lists" [ref=e21] [cursor=pointer]:
+      - img [ref=e22]
+      - generic [ref=e24]: Saved Lists
+    - generic [ref=e25]: Destinations
+    - button "Google Sheets on" [ref=e26] [cursor=pointer]:
+      - img [ref=e27]
+      - generic [ref=e29]: Google Sheets
+      - generic [ref=e30]: "on"
+    - button "Settings" [ref=e31] [cursor=pointer]:
+      - img [ref=e32]
+      - generic [ref=e34]: Settings
+    - button "OP Operator" [ref=e36] [cursor=pointer]:
+      - generic [ref=e37]: OP
+      - generic [ref=e38]: Operator
+  - generic [ref=e39]:
+    - banner [ref=e40]:
+      - heading "Find Leads" [level=1] [ref=e150]
+      - generic [ref=e43]: / Discover and enrich business contacts
+      - generic [ref=e44]:
+        - button "Toggle theme" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+        - button "Refresh" [ref=e48] [cursor=pointer]:
+          - img [ref=e49]
+        - generic [ref=e51]: OP
+    - generic [ref=e52]:
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e153]: New SearchPull contacts from Maps URLs
+          - generic [ref=e154]:
+            - button "Single URL" [ref=e155] [cursor=pointer]:
+              - img [ref=e156]
+              - text: Single URL
+            - button "Bulk URLs" [ref=e158] [cursor=pointer]:
+              - img [ref=e159]
+              - text: Bulk URLs
+            - button "CSV Import" [ref=e161] [cursor=pointer]:
+              - img [ref=e162]
+              - text: CSV Import
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]:
+              - img [ref=e167]
+              - text: Google Maps URL
+            - generic [ref=e169]:
+              - generic:
+                - img
+              - textbox "https://www.google.com/maps/place/..." [ref=e170]
+            - generic [ref=e171]:
+              - generic [ref=e172]: "Accepted:"
+              - generic [ref=e173]: google.com/maps
+              - generic [ref=e174]: maps.app.goo.gl
+              - generic [ref=e175]: goo.gl/maps
+          - generic [ref=e176]:
+            - button "Find decision-maker" [ref=e177] [cursor=pointer]: Find decision-maker
+            - button "Capture social profiles" [ref=e180] [cursor=pointer]: Capture social profiles
+            - button "Sync to Google Sheets" [ref=e183] [cursor=pointer]: Sync to Google Sheets
+        - generic [ref=e186]:
+          - generic [ref=e187]:
+            - img [ref=e188]
+            - text: 1 Maps URL
+          - button "Run Search" [disabled] [ref=e190]:
+            - img [ref=e191]
+            - text: Run Search
+      - generic [ref=e193]:
+        - generic [ref=e194]:
+          - heading "Leads0" [level=2] [ref=e195]
+          - generic [ref=e196]:
+            - generic:
+              - img
+            - textbox "Search leads..." [ref=e197]
+          - button "All 0" [ref=e198] [cursor=pointer]:
+            - img [ref=e199]
+            - text: All
+            - generic [ref=e201]: "0"
+          - button "Completed 0" [ref=e202] [cursor=pointer]:
+            - text: Completed
+            - generic [ref=e203]: "0"
+          - button "Failed 0" [ref=e204] [cursor=pointer]:
+            - text: Failed
+            - generic [ref=e205]: "0"
+          - button "Has email 0" [ref=e206] [cursor=pointer]:
+            - text: Has email
+            - generic [ref=e207]: "0"
+          - button "Has contact 0" [ref=e208] [cursor=pointer]:
+            - text: Has contact
+            - generic [ref=e209]: "0"
+          - button "Export CSV" [ref=e210] [cursor=pointer]:
+            - img [ref=e211]
+            - text: Export CSV
+        - generic [ref=e214]:
+          - img [ref=e216]
+          - generic [ref=e218]: No leads yet
+          - paragraph [ref=e219]: Run a single, bulk, or CSV scrape to populate this table with live results.

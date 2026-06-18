@@ -1,0 +1,9 @@
+# Paste 10 real Google Maps URLs here before running Phase 1 validation.
+# Use one URL per line. Lines beginning with # are ignored by manual scripts.
+#
+# Validation mix from plan.md Phase 1:
+# - 3 restaurants with likely complete fields
+# - 3 service businesses such as clinic, salon, or gym
+# - 2 B2B or office listings likely to have a website
+# - 1 listing with no website
+# - 1 short link such as https://maps.app.goo.gl/...

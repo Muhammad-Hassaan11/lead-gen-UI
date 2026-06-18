@@ -1,0 +1,98 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - generic [ref=e9]:
+        - generic [ref=e10]: Prospector
+        - generic [ref=e11]: Lead engine
+    - generic [ref=e12]: Workspace
+    - button "Find Leads" [ref=e13] [cursor=pointer]:
+      - img [ref=e14]
+      - generic [ref=e16]: Find Leads
+    - button "Job History" [ref=e17] [cursor=pointer]:
+      - img [ref=e18]
+      - generic [ref=e20]: Job History
+    - button "Saved Lists" [ref=e21] [cursor=pointer]:
+      - img [ref=e22]
+      - generic [ref=e24]: Saved Lists
+    - generic [ref=e25]: Destinations
+    - button "Google Sheets on" [ref=e26] [cursor=pointer]:
+      - img [ref=e27]
+      - generic [ref=e29]: Google Sheets
+      - generic [ref=e30]: "on"
+    - button "Settings" [ref=e31] [cursor=pointer]:
+      - img [ref=e32]
+      - generic [ref=e34]: Settings
+    - button "OP Operator" [ref=e36] [cursor=pointer]:
+      - generic [ref=e37]: OP
+      - generic [ref=e38]: Operator
+  - generic [ref=e39]:
+    - banner [ref=e40]:
+      - heading "Find Leads" [level=1] [ref=e42]
+      - generic [ref=e43]: / Discover and enrich business contacts
+      - generic [ref=e44]:
+        - button "Toggle theme" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+        - button "Refresh" [ref=e48] [cursor=pointer]:
+          - img [ref=e49]
+        - generic [ref=e51]: OP
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]: New SearchPull contacts from Maps URLs
+          - generic [ref=e56]:
+            - button "Single URL" [ref=e57] [cursor=pointer]:
+              - img [ref=e58]
+              - text: Single URL
+            - button "Bulk URLs" [ref=e60] [cursor=pointer]:
+              - img [ref=e61]
+              - text: Bulk URLs
+            - button "CSV Import" [active] [ref=e63] [cursor=pointer]:
+              - img [ref=e64]
+              - text: CSV Import
+        - generic [ref=e66]:
+          - generic [ref=e131] [cursor=pointer]:
+            - img [ref=e133]
+            - text: Drop a CSV or click to upload
+            - paragraph [ref=e135]: Header row required with a maps_url column - up to 200 URLs
+          - generic [ref=e78]:
+            - button "Find decision-maker" [ref=e79] [cursor=pointer]: Find decision-maker
+            - button "Capture social profiles" [ref=e82] [cursor=pointer]: Capture social profiles
+            - button "Sync to Google Sheets" [ref=e85] [cursor=pointer]: Sync to Google Sheets
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - img [ref=e90]
+            - text: CSV Maps import
+          - button "Run Search" [disabled] [ref=e92]:
+            - img [ref=e93]
+            - text: Run Search
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - heading "Leads0" [level=2] [ref=e97]
+          - generic [ref=e98]:
+            - generic:
+              - img
+            - textbox "Search leads..." [ref=e99]
+          - button "All 0" [ref=e100] [cursor=pointer]:
+            - img [ref=e101]
+            - text: All
+            - generic [ref=e103]: "0"
+          - button "Completed 0" [ref=e104] [cursor=pointer]:
+            - text: Completed
+            - generic [ref=e105]: "0"
+          - button "Failed 0" [ref=e106] [cursor=pointer]:
+            - text: Failed
+            - generic [ref=e107]: "0"
+          - button "Has email 0" [ref=e108] [cursor=pointer]:
+            - text: Has email
+            - generic [ref=e109]: "0"
+          - button "Has contact 0" [ref=e110] [cursor=pointer]:
+            - text: Has contact
+            - generic [ref=e111]: "0"
+          - button "Export CSV" [ref=e112] [cursor=pointer]:
+            - img [ref=e113]
+            - text: Export CSV
+        - generic [ref=e116]:
+          - img [ref=e118]
+          - generic [ref=e120]: No leads yet
+          - paragraph [ref=e121]: Run a single, bulk, or CSV scrape to populate this table with live results.

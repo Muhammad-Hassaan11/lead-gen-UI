@@ -1,0 +1,36 @@
+{"host": "127.0.0.1", "port": 8000, "event": "startup", "timestamp": "2026-06-18T08:27:21.340717Z", "level": "info"}
+Application startup complete.
+Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+127.0.0.1:60554 - "GET /healthz HTTP/1.1" 200
+127.0.0.1:60556 - "POST /api/scrape/email HTTP/1.1" 200
+127.0.0.1:60557 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60568 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60587 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60616 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60636 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+{"url": "https://miles.com.pk/", "scraper": "contacts", "emails": 0, "phones": 7, "event": "contacts_done", "timestamp": "2026-06-18T08:28:00.855239Z", "level": "info"}
+127.0.0.1:60644 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+{"url": "https://silentluxury.com.pk/", "scraper": "contacts", "emails": 0, "phones": 6, "event": "contacts_done", "timestamp": "2026-06-18T08:28:01.856004Z", "level": "info"}
+127.0.0.1:60653 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+{"url": "https://www.theaxisclothing.com/", "scraper": "contacts", "emails": 0, "phones": 13, "event": "contacts_done", "timestamp": "2026-06-18T08:28:06.071290Z", "level": "info"}
+127.0.0.1:60665 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60684 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60685 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60686 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+{"url": "https://ninefigures.com/", "scraper": "contacts", "emails": 1, "phones": 10, "event": "contacts_done", "timestamp": "2026-06-18T08:28:14.776720Z", "level": "info"}
+127.0.0.1:60690 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60691 - "GET /api/jobs/c6d1c45bfd3f HTTP/1.1" 200
+127.0.0.1:60693 - "GET /api/jobs/c6d1c45bfd3f/export.csv HTTP/1.1" 200
+127.0.0.1:60694 - "GET /api/jobs/c6d1c45bfd3f/export.csv HTTP/1.1" 200
+127.0.0.1:60693 - "GET /api/jobs/c6d1c45bfd3f/export.csv HTTP/1.1" 200
+127.0.0.1:60698 - "GET / HTTP/1.1" 200
+127.0.0.1:60698 - "GET /config.js HTTP/1.1" 200
+127.0.0.1:60698 - "GET /shell.jsx HTTP/1.1" 200
+127.0.0.1:60699 - "GET /app.jsx HTTP/1.1" 200
+127.0.0.1:60699 - "GET /favicon.ico HTTP/1.1" 204
+127.0.0.1:60699 - "GET /api/jobs?limit=20 HTTP/1.1" 200
+127.0.0.1:60795 - "GET /healthz HTTP/1.1" 200
+127.0.0.1:60795 - "GET /favicon.ico HTTP/1.1" 204
+127.0.0.1:61040 - "GET /healthz HTTP/1.1" 200
+127.0.0.1:61069 - "GET /healthz HTTP/1.1" 200
+127.0.0.1:61069 - "GET /favicon.ico HTTP/1.1" 204

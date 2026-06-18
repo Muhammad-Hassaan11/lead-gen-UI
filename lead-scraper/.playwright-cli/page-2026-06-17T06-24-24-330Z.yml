@@ -1,0 +1,42 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - generic [ref=e9]:
+        - generic [ref=e10]: Prospector
+        - generic [ref=e11]: Lead engine
+    - generic [ref=e12]: Workspace
+    - button "Find Leads" [ref=e13] [cursor=pointer]:
+      - img [ref=e14]
+      - generic [ref=e16]: Find Leads
+    - button "Job History" [ref=e17] [cursor=pointer]:
+      - img [ref=e18]
+      - generic [ref=e20]: Job History
+    - button "Saved Lists" [active] [ref=e21] [cursor=pointer]:
+      - img [ref=e22]
+      - generic [ref=e24]: Saved Lists
+    - generic [ref=e25]: Destinations
+    - button "Google Sheets on" [ref=e26] [cursor=pointer]:
+      - img [ref=e27]
+      - generic [ref=e29]: Google Sheets
+      - generic [ref=e30]: "on"
+    - button "Settings" [ref=e31] [cursor=pointer]:
+      - img [ref=e32]
+      - generic [ref=e34]: Settings
+    - button "OP Operator" [ref=e36] [cursor=pointer]:
+      - generic [ref=e37]: OP
+      - generic [ref=e38]: Operator
+  - generic [ref=e39]:
+    - banner [ref=e40]:
+      - heading "Saved Lists" [level=1] [ref=e136]
+      - generic [ref=e43]: / Coming in v1.1
+      - generic [ref=e44]:
+        - button "Toggle theme" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+        - button "Refresh" [ref=e48] [cursor=pointer]:
+          - img [ref=e49]
+        - generic [ref=e51]: OP
+    - generic [ref=e137]:
+      - img [ref=e139]
+      - generic [ref=e141]: Coming in v1.1
+      - paragraph [ref=e142]: Saved lists will live here after the core scraping workflow is stable.

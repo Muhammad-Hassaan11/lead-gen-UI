@@ -1,0 +1,353 @@
+Email Extraction Results
+============================================================
+
+Website : http://kson.com/
+Email   : dmca@audacy.com
+------------------------------------------------------------
+Website : http://www.imef.marines.mil/Units/I-MIG/1ST-RADIO-BN/
+Email   : camppendleton@focusproject.org
+Email   : dma.websd@mail.mil
+------------------------------------------------------------
+Website : https://anchor.fm/christopher-boyd83
+Email   : legal@spotify.com
+Email   : tounotice@spotify.com
+------------------------------------------------------------
+Website : http://magic925.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : http://www.arrl.org/Groups/view/escondido-ars/type:club
+Email   : hq@arrl.org
+Email   : membership@earsclub.org
+------------------------------------------------------------
+Website : http://www.rezradio.fm/
+Email   : 91.3@palatribe.com
+------------------------------------------------------------
+Website : https://www.radiousabrasil.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : http://voicemarketing.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : http://resonatewithgod.com/
+Email   : ERROR: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://resonatewithgod.com/
+Call log:
+  - navigating to "http://resonatewithgod.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.slacker.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.slacker.com/" is interrupted by another navigation to "chrome-error://chromewebdata/"
+Call log:
+  - navigating to "http://www.slacker.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://www.repeaterbook.com/repeaters/details.php?state_id=06&ID=11079
+Email   : ERROR: Page.goto: Navigation to "https://www.repeaterbook.com/repeaters/details.php?state_id=06&ID=11079" is interrupted by another navigation to "https://www.liveone.com/?utm_campaign=slacker-redirect&"
+Call log:
+  - navigating to "https://www.repeaterbook.com/repeaters/details.php?state_id=06&ID=11079", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.z90.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.z90.com/" is interrupted by another navigation to "https://www.repeaterbook.com/repeaters/details.php?state_id=06&ID=11079"
+Call log:
+  - navigating to "http://www.z90.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.91x.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.91x.com/" is interrupted by another navigation to "https://www.z90.com/"
+Call log:
+  - navigating to "http://www.91x.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.iheartmedia.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.iheartmedia.com/" is interrupted by another navigation to "https://www.91x.com/"
+Call log:
+  - navigating to "http://www.iheartmedia.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://kool959fm.com/
+Email   : ERROR: Page.goto: Navigation to "http://kool959fm.com/" is interrupted by another navigation to "https://www.iheartmedia.com/"
+Call log:
+  - navigating to "http://kool959fm.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.thebig106.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.thebig106.com/" is interrupted by another navigation to "https://kool959fm.com/"
+Call log:
+  - navigating to "http://www.thebig106.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://www.larradio.com/
+Email   : ERROR: Page.goto: Navigation to "https://www.larradio.com/" is interrupted by another navigation to "https://thebig106.com/"
+Call log:
+  - navigating to "https://www.larradio.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.kolafm.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.kolafm.com/" is interrupted by another navigation to "https://www.larradio.com/"
+Call log:
+  - navigating to "http://www.kolafm.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://ksgn.com/
+Email   : ERROR: Page.goto: Navigation to "https://ksgn.com/" is interrupted by another navigation to "http://www.kolafm.com/"
+Call log:
+  - navigating to "https://ksgn.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://www.kcaaradio.com/
+Email   : ERROR: Page.goto: Navigation to "https://www.kcaaradio.com/" is interrupted by another navigation to "https://ksgn.com/"
+Call log:
+  - navigating to "https://www.kcaaradio.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.radiodigital07.com/
+Email   : ERROR: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.radiodigital07.com/
+Call log:
+  - navigating to "http://www.radiodigital07.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://www.studiowbuzz.com/
+Email   : ERROR: Page.goto: Navigation to "https://www.studiowbuzz.com/" is interrupted by another navigation to "chrome-error://chromewebdata/"
+Call log:
+  - navigating to "https://www.studiowbuzz.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.kdawgradio.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.kdawgradio.com/" is interrupted by another navigation to "https://studiowbuzz.com/"
+Call log:
+  - navigating to "http://www.kdawgradio.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.kcalfm.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.kcalfm.com/" is interrupted by another navigation to "http://www.kdawgradio.com/"
+Call log:
+  - navigating to "http://www.kcalfm.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://kvcr.org/
+Email   : ERROR: Page.goto: net::ERR_CONNECTION_TIMED_OUT at http://kvcr.org/
+Call log:
+  - navigating to "http://kvcr.org/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://am590theanswer.com/
+Email   : ERROR: Page.goto: Navigation to "https://am590theanswer.com/" is interrupted by another navigation to "chrome-error://chromewebdata/"
+Call log:
+  - navigating to "https://am590theanswer.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.radiolazer.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.radiolazer.com/" is interrupted by another navigation to "https://am590theanswer.com/"
+Call log:
+  - navigating to "http://www.radiolazer.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://celticrockradio.net/
+Email   : ERROR: Page.goto: Navigation to "http://celticrockradio.net/" is interrupted by another navigation to "http://radiolazer.com/"
+Call log:
+  - navigating to "http://celticrockradio.net/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://katyfm.com/
+Email   : ERROR: Page.goto: Navigation to "https://katyfm.com/" is interrupted by another navigation to "http://celticrockradio.net/"
+Call log:
+  - navigating to "https://katyfm.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://spinlogicradio.com/
+Email   : ERROR: Page.goto: Navigation to "http://spinlogicradio.com/" is interrupted by another navigation to "https://katyfm.com/"
+Call log:
+  - navigating to "http://spinlogicradio.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://movementonair.com/
+Email   : ERROR: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://movementonair.com/
+Call log:
+  - navigating to "http://movementonair.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.palatribe.com/businesses/pala-rez-radio/
+Email   : ERROR: Page.goto: Navigation to "http://www.palatribe.com/businesses/pala-rez-radio/" is interrupted by another navigation to "chrome-error://chromewebdata/"
+Call log:
+  - navigating to "http://www.palatribe.com/businesses/pala-rez-radio/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://www.blackpoliticalopinion.com/
+Email   : ERROR: Page.goto: Navigation to "https://www.blackpoliticalopinion.com/" is interrupted by another navigation to "https://www.palatribe.com/businesses/pala-rez-radio/"
+Call log:
+  - navigating to "https://www.blackpoliticalopinion.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://www.guadaluperadio.com/
+Email   : contigo@guadaluperadio.com
+------------------------------------------------------------
+Website : https://www.straighttalkwealth.com/contact-us/
+Email   : bruce@straighttalkwealth.com
+------------------------------------------------------------
+Website : http://983fmtheword.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : https://lam1073.com/contacto/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : http://www.lam1073.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : http://ktms.com/
+Email   : ERROR: Page.goto: net::ERR_CONNECTION_TIMED_OUT at http://ktms.com/
+Call log:
+  - navigating to "http://ktms.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://radiocontentpro.com/
+Email   : you@station.com
+------------------------------------------------------------
+Website : http://godstoriesministries.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : http://www.luminary-sounds.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : https://kjee.com/
+Email   : ERROR: Page.goto: net::ERR_CERT_DATE_INVALID at https://kjee.com/
+Call log:
+  - navigating to "https://kjee.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.sbarc.org/
+Email   : ERROR: Page.goto: net::ERR_EMPTY_RESPONSE at http://www.sbarc.org/
+Call log:
+  - navigating to "http://www.sbarc.org/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.kcsb.org/
+Email   : advisor@kcsb.org
+Email   : gm@kcsb.org
+------------------------------------------------------------
+Website : http://www.radiobronco.com/
+Email   : archives@kcsb.org
+Email   : asst.eng@kcsb.org
+Email   : dmc@kcsb.org
+Email   : ext.news@kcsb.org
+Email   : gm.kjuc@kcsb.org
+Email   : int.md@kcsb.org
+Email   : int.news@kcsb.org
+Email   : maguire.carlo@gmail.com
+Email   : pd.kjuc@ucsb.edu
+Email   : publication@kcsb.org
+Email   : sports.dir@kcsb.org
+------------------------------------------------------------
+Website : https://www.outlawcountry1037.com/
+Email   : ERROR: Page.goto: net::ERR_CERT_DATE_INVALID at https://www.outlawcountry1037.com/
+Call log:
+  - navigating to "https://www.outlawcountry1037.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://www.1015bigfm.com/
+Email   : webinfo@americangeneralmedia.com
+------------------------------------------------------------
+Website : https://q921radio.com/contact/
+Email   : ERROR: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://q921radio.com/contact/
+Call log:
+  - navigating to "https://q921radio.com/contact/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.turnto23.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.turnto23.com/" is interrupted by another navigation to "chrome-error://chromewebdata/"
+Call log:
+  - navigating to "http://www.turnto23.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://www.969lacaliente.com/
+Email   : ERROR: Page.goto: Navigation to "https://www.969lacaliente.com/" is interrupted by another navigation to "https://www.turnto23.com/"
+Call log:
+  - navigating to "https://www.969lacaliente.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.hits931fm.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.hits931fm.com/" is interrupted by another navigation to "https://www.969lacaliente.com/"
+Call log:
+  - navigating to "http://www.hits931fm.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.985thefox.com/
+Email   : ERROR: Page.goto: Navigation to "http://www.985thefox.com/" is interrupted by another navigation to "https://www.hits931fm.com/"
+Call log:
+  - navigating to "http://www.985thefox.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://www.forge1039.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : https://www.lotuscorp.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : https://www.lapicositaonline.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : https://campesina.com/
+Email   : ERROR: Page.eval_on_selector_all: Execution context was destroyed, most likely because of a navigation
+------------------------------------------------------------
+Website : http://radiolobo.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : https://www.espnbakersfield.com/
+Email   : aflores@americangeneralmedia.com
+------------------------------------------------------------
+Website : http://yourradiostore.com/
+Email   : yourradiostore@americangeneralmedia.com
+------------------------------------------------------------
+Website : http://laredencion.net/
+Email   : pastor@iglesiadebakersfield.com
+------------------------------------------------------------
+Website : http://www.radiovidaabundante.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : http://eatdrinkexplore.com/
+Email   : hello@eatdrinkexplore.com
+------------------------------------------------------------
+Website : https://www.airnav.com/cgi-bin/navaid-info?id=GLJ
+Email   : contact@airnav.com
+------------------------------------------------------------
+Website : http://www.arroyogrande.org/
+Email   : huasna@arroyogrande.org
+------------------------------------------------------------
+Website : http://1041pirateradio.com/
+Email   : Email nahi mila
+------------------------------------------------------------
+Website : http://bobfm1039.com/
+Email   : contact@adelmanbroadcasting.com
+------------------------------------------------------------
+Website : http://www.air1.com/
+Email   : donorservices@air1.com
+------------------------------------------------------------
+Website : http://familyradio.org/
+Email   : privacy@familyradio.org
+------------------------------------------------------------
+Website : http://www.ktpifm.com/
+Email   : ERROR: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.ktpifm.com/
+Call log:
+  - navigating to "http://www.ktpifm.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://bluvth-muzick-radio.ueniweb.com/?utm_campaign=gmb
+Email   : ERROR: Page.goto: Navigation to "https://bluvth-muzick-radio.ueniweb.com/?utm_campaign=gmb" is interrupted by another navigation to "chrome-error://chromewebdata/"
+Call log:
+  - navigating to "https://bluvth-muzick-radio.ueniweb.com/?utm_campaign=gmb", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://pointbroadcasting.com/
+Email   : ERROR: Page.goto: Navigation to "https://pointbroadcasting.com/" is interrupted by another navigation to "https://bluvth-muzick-radio.ueniweb.com/?utm_campaign=gmb"
+Call log:
+  - navigating to "https://pointbroadcasting.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : http://1001thequake.com/
+Email   : ERROR: Page.goto: Navigation to "http://1001thequake.com/" is interrupted by another navigation to "https://pointbroadcasting.com/"
+Call log:
+  - navigating to "http://1001thequake.com/", waiting until "domcontentloaded"
+
+------------------------------------------------------------
+Website : https://mister-ben-bipolar.ueniweb.com/?utm_campaign=gmb
+Email   : benjapr@msn.com
+------------------------------------------------------------

@@ -1,0 +1,185 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - generic [ref=e9]:
+        - generic [ref=e10]: Prospector
+        - generic [ref=e11]: Lead engine
+    - generic [ref=e12]: Workspace
+    - button "Find Leads" [ref=e13] [cursor=pointer]:
+      - img [ref=e14]
+      - generic [ref=e16]: Find Leads
+    - button "Job History" [ref=e17] [cursor=pointer]:
+      - img [ref=e18]
+      - generic [ref=e20]: Job History
+    - button "Saved Lists" [ref=e21] [cursor=pointer]:
+      - img [ref=e22]
+      - generic [ref=e24]: Saved Lists
+    - generic [ref=e25]: Destinations
+    - button "Google Sheets on" [ref=e26] [cursor=pointer]:
+      - img [ref=e27]
+      - generic [ref=e29]: Google Sheets
+      - generic [ref=e30]: "on"
+    - button "Settings" [ref=e31] [cursor=pointer]:
+      - img [ref=e32]
+      - generic [ref=e34]: Settings
+    - button "OP Operator" [ref=e36] [cursor=pointer]:
+      - generic [ref=e37]: OP
+      - generic [ref=e38]: Operator
+  - generic [ref=e39]:
+    - banner [ref=e40]:
+      - heading "Find Leads" [level=1] [ref=e150]
+      - generic [ref=e43]: / Discover and enrich business contacts
+      - generic [ref=e44]:
+        - button "Toggle theme" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+        - button "Refresh" [ref=e48] [cursor=pointer]:
+          - img [ref=e49]
+        - generic [ref=e51]: OP
+    - generic [ref=e52]:
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e153]: New SearchPull contacts from Maps URLs
+          - generic [ref=e154]:
+            - button "Single URL" [ref=e155] [cursor=pointer]:
+              - img [ref=e156]
+              - text: Single URL
+            - button "Bulk URLs" [ref=e158] [cursor=pointer]:
+              - img [ref=e159]
+              - text: Bulk URLs
+            - button "CSV Import" [ref=e161] [cursor=pointer]:
+              - img [ref=e162]
+              - text: CSV Import
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]:
+              - img [ref=e167]
+              - text: Google Maps URL
+            - generic [ref=e169]:
+              - generic:
+                - img
+              - textbox "https://www.google.com/maps/place/..." [ref=e170]: https://www.google.com/maps/place/Googleplex/@37.4220656,-122.0862784,17z
+            - generic [ref=e171]:
+              - generic [ref=e172]: "Accepted:"
+              - generic [ref=e173]: google.com/maps
+              - generic [ref=e174]: maps.app.goo.gl
+              - generic [ref=e175]: goo.gl/maps
+          - generic [ref=e176]:
+            - button "Find decision-maker" [ref=e177] [cursor=pointer]: Find decision-maker
+            - button "Capture social profiles" [ref=e180] [cursor=pointer]: Capture social profiles
+            - button "Sync to Google Sheets" [ref=e183] [cursor=pointer]: Sync to Google Sheets
+        - generic [ref=e186]:
+          - generic [ref=e187]:
+            - img [ref=e188]
+            - text: 1 Maps URL
+          - button "Running..." [disabled] [ref=e220]
+      - generic [ref=e221]:
+        - generic [ref=e222]:
+          - generic [ref=e224]: Scraping
+          - generic [ref=e225]: Searching Google Maps - "https://www.google.com/maps/place/Googleplex/@37.4220656,-122.0862784,17z"
+          - generic [ref=e226]: 0 / 1 done
+        - generic [ref=e227]:
+          - generic [ref=e228]:
+            - generic [ref=e231]: "1"
+            - generic [ref=e233]: Maps
+          - generic [ref=e234]:
+            - generic [ref=e237]: "2"
+            - generic [ref=e239]: Crawl
+          - generic [ref=e240]:
+            - generic [ref=e243]: "3"
+            - generic [ref=e245]: Extract
+          - generic [ref=e246]:
+            - generic [ref=e249]: "4"
+            - generic [ref=e251]: Decision-maker
+          - generic [ref=e252]:
+            - generic [ref=e255]: "5"
+            - generic [ref=e256]: Sync
+      - generic [ref=e193]:
+        - generic [ref=e194]:
+          - heading "Leads1" [level=2] [ref=e257]
+          - generic [ref=e196]:
+            - generic:
+              - img
+            - textbox "Search leads..." [ref=e197]
+          - button "All 1" [ref=e258] [cursor=pointer]:
+            - img [ref=e199]
+            - text: All
+            - generic [ref=e201]: "1"
+          - button "Completed 0" [ref=e202] [cursor=pointer]:
+            - text: Completed
+            - generic [ref=e203]: "0"
+          - button "Failed 0" [ref=e204] [cursor=pointer]:
+            - text: Failed
+            - generic [ref=e205]: "0"
+          - button "Has email 0" [ref=e206] [cursor=pointer]:
+            - text: Has email
+            - generic [ref=e207]: "0"
+          - button "Has contact 0" [ref=e208] [cursor=pointer]:
+            - text: Has contact
+            - generic [ref=e209]: "0"
+          - button "Export CSV" [ref=e210] [cursor=pointer]:
+            - img [ref=e211]
+            - text: Export CSV
+        - table [ref=e259]:
+          - rowgroup [ref=e260]:
+            - row "Company Email Phone Decision-maker Social Confidence Status" [ref=e261]:
+              - columnheader [ref=e262]:
+                - button [ref=e263] [cursor=pointer]
+              - columnheader "Company" [ref=e264] [cursor=pointer]:
+                - generic [ref=e265]:
+                  - text: Company
+                  - img [ref=e267]
+              - columnheader "Email" [ref=e269] [cursor=pointer]:
+                - generic [ref=e270]:
+                  - text: Email
+                  - img [ref=e272]
+              - columnheader "Phone" [ref=e274]:
+                - generic [ref=e275]: Phone
+              - columnheader "Decision-maker" [ref=e276] [cursor=pointer]:
+                - generic [ref=e277]:
+                  - text: Decision-maker
+                  - img [ref=e279]
+              - columnheader "Social" [ref=e281]:
+                - generic [ref=e282]: Social
+              - columnheader "Confidence" [ref=e283] [cursor=pointer]:
+                - generic [ref=e284]:
+                  - text: Confidence
+                  - img [ref=e286]
+              - columnheader "Status" [ref=e288] [cursor=pointer]:
+                - generic [ref=e289]:
+                  - text: Status
+                  - img [ref=e291]
+              - columnheader [ref=e293]
+          - rowgroup [ref=e294]:
+            - row "PL Pending lead Maps URL - Location pending - - Not found Low Pending" [ref=e295] [cursor=pointer]:
+              - cell [ref=e296]:
+                - button [ref=e297]
+              - cell "PL Pending lead Maps URL - Location pending" [ref=e298]:
+                - generic [ref=e299]:
+                  - generic [ref=e300]: PL
+                  - generic [ref=e301]:
+                    - generic [ref=e302]: Pending lead
+                    - generic [ref=e303]: Maps URL - Location pending
+              - cell "-" [ref=e304]
+              - cell "-" [ref=e305]
+              - cell "Not found" [ref=e306]
+              - cell [ref=e307]:
+                - generic [ref=e308]:
+                  - generic "Not found" [ref=e309]:
+                    - img [ref=e310]
+                  - generic "Not found" [ref=e312]:
+                    - img [ref=e313]
+                  - generic "Not found" [ref=e315]:
+                    - img [ref=e316]
+                  - generic "Not found" [ref=e318]:
+                    - img [ref=e319]
+              - cell "Low" [ref=e321]:
+                - generic [ref=e327]: Low
+              - cell "Pending" [ref=e328]:
+                - generic [ref=e329]: Pending
+              - cell [ref=e331]:
+                - generic [ref=e332]:
+                  - button "Copy contact" [ref=e333]:
+                    - img [ref=e334]
+                  - button "Copy Maps URL" [ref=e336]:
+                    - img [ref=e337]

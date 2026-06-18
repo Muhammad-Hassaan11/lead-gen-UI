@@ -1,0 +1,153 @@
+Facebook Link Results
+============================================================
+
+Website  : http://www.lgb.org/
+Facebook : ERROR: Page.goto: Timeout 40000ms exceeded.
+Call log:
+  - navigating to "http://www.lgb.org/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://www.carpenterarts.org/
+Facebook : https://www.facebook.com/CarpenterArts.org
+------------------------------------------------------------
+Website  : http://www.4kliq.com/
+Facebook : Facebook nahi mila
+------------------------------------------------------------
+Website  : http://klbp.org/
+Facebook : https://www.facebook.com/klbpfm
+------------------------------------------------------------
+Website  : http://www.guadaluperadio.com/
+Facebook : https://www.facebook.com/guadaluperadiotv
+------------------------------------------------------------
+Website  : http://www.razoradio.com/
+Facebook : https://www.facebook.com/RazorRadio
+------------------------------------------------------------
+Website  : http://homeboyradio.com/
+Facebook : https://facebook.com/freeshoutcast
+------------------------------------------------------------
+Website  : https://stereo-warehouse.com/
+Facebook : https://www.facebook.com/thestereowarehouse
+------------------------------------------------------------
+Website  : http://www.picorivera.lasd.org/
+Facebook : https://www.facebook.com/PicoRiveraSheriffsStation
+------------------------------------------------------------
+Website  : http://bookofsternahtjc.com/
+Facebook : Facebook nahi mila
+------------------------------------------------------------
+Website  : https://for-the-love-of-music-radio-show-podcast.ueniweb.com/
+Facebook : https://www.facebook.com/share.php
+------------------------------------------------------------
+Website  : http://www.scpr.org/
+Facebook : https://www.facebook.com/laistofficial
+------------------------------------------------------------
+Website  : http://lanoria.tv/
+Facebook : http://www.facebook.com/2008/fbml
+------------------------------------------------------------
+Website  : https://tonyfloresoficial.com/
+Facebook : https://www.facebook.com/tonyfloresoficial
+------------------------------------------------------------
+Website  : http://www.amihaciendanightclub.com/
+Facebook : https://www.facebook.com/amihaciendanightclub
+------------------------------------------------------------
+Website  : http://www.blogtalkradio.com/hotwordzhottopics
+Facebook : ERROR: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.blogtalkradio.com/hotwordzhottopics
+Call log:
+  - navigating to "http://www.blogtalkradio.com/hotwordzhottopics", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://www.islandblockradio.com/
+Facebook : ERROR: Page.goto: Navigation to "http://www.islandblockradio.com/" is interrupted by another navigation to "chrome-error://chromewebdata/"
+Call log:
+  - navigating to "http://www.islandblockradio.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://www.kaaosjones.com/
+Facebook : ERROR: Page.goto: Navigation to "http://www.kaaosjones.com/" is interrupted by another navigation to "https://islandblocknetwork.com/radio/"
+Call log:
+  - navigating to "http://www.kaaosjones.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://www.yabatvlosangeles.com/
+Facebook : ERROR: Page.goto: Navigation to "http://www.yabatvlosangeles.com/" is interrupted by another navigation to "https://www.kaaosjones.com/"
+Call log:
+  - navigating to "http://www.yabatvlosangeles.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://www.tjsla.com/
+Facebook : ERROR: Page.goto: Navigation to "http://www.tjsla.com/" is interrupted by another navigation to "https://yabatvlosangeles.com/"
+Call log:
+  - navigating to "http://www.tjsla.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://radiorncd.com/
+Facebook : ERROR: Page.goto: Navigation to "http://radiorncd.com/" is interrupted by another navigation to "http://www.tjsla.com/"
+Call log:
+  - navigating to "http://radiorncd.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : https://allyanceentertainmentrobots.com/
+Facebook : ERROR: Page.goto: Navigation to "https://allyanceentertainmentrobots.com/" is interrupted by another navigation to "https://radiorncd.com/"
+Call log:
+  - navigating to "https://allyanceentertainmentrobots.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://crnlive.com/
+Facebook : ERROR: Page.goto: Navigation to "http://crnlive.com/" is interrupted by another navigation to "https://allyanceentertainmentrobots.com/"
+Call log:
+  - navigating to "http://crnlive.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : https://silent-scream-can-you-hear-me-god-podcast.ueniweb.com/
+Facebook : ERROR: Page.goto: Navigation to "https://silent-scream-can-you-hear-me-god-podcast.ueniweb.com/" is interrupted by another navigation to "https://crnlive.com/"
+Call log:
+  - navigating to "https://silent-scream-can-you-hear-me-god-podcast.ueniweb.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://www.brickhouse.llc/
+Facebook : ERROR: Page.goto: Navigation to "http://www.brickhouse.llc/" is interrupted by another navigation to "https://silent-scream-can-you-hear-me-god-podcast.ueniweb.com/"
+Call log:
+  - navigating to "http://www.brickhouse.llc/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://www.islandblocknetwork.com/
+Facebook : ERROR: Page.goto: Navigation to "http://www.islandblocknetwork.com/" is interrupted by another navigation to "https://www.instagram.com/brickhousecreativellc/"
+Call log:
+  - navigating to "http://www.islandblocknetwork.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://www.acceleratedradio.net/
+Facebook : ERROR: Page.goto: Navigation to "http://www.acceleratedradio.net/" is interrupted by another navigation to "https://islandblocknetwork.com/"
+Call log:
+  - navigating to "http://www.acceleratedradio.net/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://radiobolsa.com/
+Facebook : ERROR: Page.goto: Navigation to "http://radiobolsa.com/" is interrupted by another navigation to "https://www.acceleratedradio.net/"
+Call log:
+  - navigating to "http://radiobolsa.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://littlesaigonradio.com/
+Facebook : ERROR: Page.goto: Navigation to "http://littlesaigonradio.com/" is interrupted by another navigation to "http://radiobolsa.com/"
+Call log:
+  - navigating to "http://littlesaigonradio.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : http://soundsationsrecords.com/
+Facebook : ERROR: Page.goto: Navigation to "http://soundsationsrecords.com/" is interrupted by another navigation to "http://littlesaigonradio.com/"
+Call log:
+  - navigating to "http://soundsationsrecords.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : https://www.rrfedu.com/
+Facebook : ERROR: Page.goto: Navigation to "https://www.rrfedu.com/" is interrupted by another navigation to "http://soundsationsrecords.com/"
+Call log:
+  - navigating to "https://www.rrfedu.com/", waiting until "load"
+
+------------------------------------------------------------
+Website  : https://www.sjmradio.com/
+Facebook : ERROR: Page.goto: Navigation to "https://www.sjmradio.com/" is interrupted by another navigation to "https://www.rrfedu.com/"
+Call log:
+  - navigating to "https://www.sjmradio.com/", waiting until "load"
+
+------------------------------------------------------------
