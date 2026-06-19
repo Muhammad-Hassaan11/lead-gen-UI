@@ -8,18 +8,54 @@ import traceback
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.ai import verify_lead as ai_verify_lead
 from app.config import settings
 from app.extractors.ceo import find_ceo
 from app.extractors.contact import extract_emails, extract_phones
 from app.extractors.social import extract_socials
+from app.jobs import EmailVerdict
 from app.jobs import Job as MemoryJob
 from app.jobs import Lead as MemoryLead
 from app.models import Lead as DbLead
 from app.scrapers import find_facebook, find_website, scrape_maps
+from app.scrapers.browser import new_page
 from app.scrapers.email import scrape_contacts
 from app.scrapers.website import crawl_website
 from app.sinks import sheets
 from app.utils.log import logger
+from app.utils.url import ensure_scheme
+
+
+async def _ai_check(lead: MemoryLead) -> None:
+    """Best-effort Gemini verification. Never raises — just annotates the lead."""
+    if not settings.gemini_api_key:
+        return
+    if not lead.emails and not lead.business_name:
+        return
+    try:
+        result = await ai_verify_lead(
+            business_name=lead.business_name,
+            website=lead.website,
+            emails=list(lead.emails),
+        )
+    except Exception as exc:
+        lead.ai_note = f"verifier crashed: {str(exc)[:120]}"
+        return
+    if result is None:
+        return
+
+    lead.email_verdicts = [
+        EmailVerdict(
+            email=item.get("email") or "",
+            valid=bool(item.get("valid")),
+            reason=item.get("reason") or "",
+        )
+        for item in result.get("emails", [])
+        if item.get("email")
+    ]
+    lead.name_matches = result.get("name_matches")
+    lead.ai_note = (result.get("name_reason") or "").strip() or None
+    lead.ai_checked = True
 
 
 def _bump_done(job: MemoryJob) -> None:
@@ -110,10 +146,13 @@ async def run_email_job(job: MemoryJob) -> None:
         lead.emails = emails
         if phones:
             lead.phone = phones[0]
+        if not lead.website:
+            lead.website = ensure_scheme(lead.source_url)
         has_any = bool(emails or phones)
         lead.status = "done" if has_any else "partial"
         if not has_any:
             lead.error = "site loaded but no public emails or phones found"
+        await _ai_check(lead)
     await _site_concurrent(job, work)
 
 
@@ -124,6 +163,95 @@ async def run_facebook_job(job: MemoryJob) -> None:
         lead.status = "done" if fb else "partial"
         if not fb:
             lead.error = "no Facebook link found on this site"
+    await _site_concurrent(job, work)
+
+
+_TITLE_SEPS = (" | ", " - ", " — ", " – ", " · ", " :: ", " » ")
+
+
+async def _fetch_business_name(url: str) -> str | None:
+    """Best-effort business name from a website (og:site_name → <title>)."""
+    log = logger.bind(url=url, scraper="website_name")
+    try:
+        ctx, page = await new_page()
+    except Exception as e:
+        log.warning("name_browser_launch_failed", error=str(e))
+        return None
+    try:
+        try:
+            await page.goto(url, wait_until="domcontentloaded", timeout=30_000)
+        except Exception as e:
+            log.warning("name_goto_failed", error=str(e))
+            return None
+        await asyncio.sleep(1.0)
+        try:
+            og = await page.get_attribute(
+                "meta[property='og:site_name']", "content"
+            )
+            if og and og.strip():
+                return og.strip()[:200]
+        except Exception:
+            pass
+        try:
+            app_name = await page.get_attribute(
+                "meta[name='application-name']", "content"
+            )
+            if app_name and app_name.strip():
+                return app_name.strip()[:200]
+        except Exception:
+            pass
+        try:
+            title = await page.title()
+            if title:
+                for sep in _TITLE_SEPS:
+                    if sep in title:
+                        title = title.split(sep)[0]
+                        break
+                cleaned = title.strip()
+                if cleaned:
+                    return cleaned[:200]
+        except Exception:
+            pass
+        return None
+    finally:
+        try:
+            await ctx.close()
+        except Exception:
+            pass
+
+
+async def run_website_leads_job(job: MemoryJob) -> None:
+    """Website URL → emails, phone, Facebook, business name. No Google Maps."""
+    async def work(lead: MemoryLead) -> None:
+        url = ensure_scheme(lead.source_url)
+        lead.website = url
+
+        contacts_task = asyncio.create_task(scrape_contacts(url))
+        fb_task = asyncio.create_task(find_facebook(url))
+        name_task = asyncio.create_task(_fetch_business_name(url))
+
+        (emails, phones), fb, name = await asyncio.gather(
+            contacts_task, fb_task, name_task, return_exceptions=False
+        )
+
+        lead.emails = emails
+        if phones:
+            lead.phone = phones[0]
+        lead.facebook = fb
+        if name:
+            lead.business_name = name
+
+        has_any = any([lead.business_name, lead.phone, lead.emails, lead.facebook])
+        if lead.emails:
+            lead.status = "done"
+        elif has_any:
+            lead.status = "partial"
+        else:
+            lead.status = "partial"
+            lead.error = "site loaded but no contact info found"
+
+        await _ai_check(lead)
+
     await _site_concurrent(job, work)
 
 
@@ -163,6 +291,8 @@ async def run_all_job(job: MemoryJob) -> None:
             else:
                 lead.status = "partial"
                 lead.error = getattr(maps, "note", None) or "no fields extracted"
+
+            await _ai_check(lead)
         except Exception as e:
             logger.exception("all_lead_failed", url=lead.source_url, error=str(e))
             lead.status = "failed"
@@ -179,6 +309,7 @@ RUNNERS = {
     "email": run_email_job,
     "facebook": run_facebook_job,
     "all": run_all_job,
+    "website_leads": run_website_leads_job,
 }
 
 

@@ -67,6 +67,14 @@ class BulkScrapeRequest(BaseModel):
     maps_urls: list[str] = Field(..., min_length=1, max_length=200)
 
 
+class SingleWebsiteRequest(BaseModel):
+    website_url: str = Field(..., min_length=1)
+
+
+class BulkWebsiteRequest(BaseModel):
+    website_urls: list[str] = Field(..., min_length=1, max_length=200)
+
+
 class JobAccepted(BaseModel):
     job_id: str
     total: int
@@ -143,6 +151,53 @@ async def scrape_csv_route(bg: BackgroundTasks, file: UploadFile = File(...)) ->
 
     urls = [row.get(maps_field, "").strip() for row in reader]
     return _start_job("all", urls, bg)
+
+
+# ---- Website-URL flow (no Google Maps) -------------------------------------
+
+@app.post("/api/scrape/website-single", response_model=JobAccepted)
+async def scrape_website_single_route(
+    req: SingleWebsiteRequest, bg: BackgroundTasks
+) -> JobAccepted:
+    return _start_job("website_leads", [req.website_url], bg)
+
+
+@app.post("/api/scrape/website-bulk", response_model=JobAccepted)
+async def scrape_website_bulk_route(
+    req: BulkWebsiteRequest, bg: BackgroundTasks
+) -> JobAccepted:
+    return _start_job("website_leads", req.website_urls, bg)
+
+
+@app.post("/api/scrape/website-csv", response_model=JobAccepted)
+async def scrape_website_csv_route(
+    bg: BackgroundTasks, file: UploadFile = File(...)
+) -> JobAccepted:
+    raw = await file.read()
+    try:
+        text = raw.decode("utf-8-sig")
+    except UnicodeDecodeError as exc:
+        raise HTTPException(status_code=400, detail="CSV must be UTF-8 encoded.") from exc
+
+    reader = csv.DictReader(io.StringIO(text))
+    if not reader.fieldnames:
+        raise HTTPException(status_code=400, detail="CSV header row is required.")
+
+    field_lookup = {name.strip().lower(): name for name in reader.fieldnames}
+    site_field = (
+        field_lookup.get("website_url")
+        or field_lookup.get("website url")
+        or field_lookup.get("website")
+        or field_lookup.get("url")
+    )
+    if site_field is None:
+        raise HTTPException(
+            status_code=400,
+            detail="CSV must include a website_url column.",
+        )
+
+    urls = [row.get(site_field, "").strip() for row in reader]
+    return _start_job("website_leads", urls, bg)
 
 
 @app.get("/api/jobs/{job_id}", response_model=Job)

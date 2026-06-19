@@ -74,22 +74,32 @@ function App() {
 
     try {
       let response;
+      const isWebsiteMode = payload.mode === "website";
       if (payload.tab === "single") {
-        response = await requestJSON("/api/scrape/single", {
+        const endpoint = isWebsiteMode ? "/api/scrape/website-single" : "/api/scrape/single";
+        const body = isWebsiteMode
+          ? { website_url: payload.url || payload.mapsUrl }
+          : { maps_url: payload.mapsUrl };
+        response = await requestJSON(endpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ maps_url: payload.mapsUrl }),
+          body: JSON.stringify(body),
         });
       } else if (payload.tab === "bulk") {
-        response = await requestJSON("/api/scrape/bulk", {
+        const endpoint = isWebsiteMode ? "/api/scrape/website-bulk" : "/api/scrape/bulk";
+        const body = isWebsiteMode
+          ? { website_urls: payload.urls || payload.mapsUrls }
+          : { maps_urls: payload.mapsUrls };
+        response = await requestJSON(endpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ maps_urls: payload.mapsUrls }),
+          body: JSON.stringify(body),
         });
       } else {
+        const endpoint = isWebsiteMode ? "/api/scrape/website-csv" : "/api/scrape/csv";
         const body = new FormData();
         body.append("file", payload.file);
-        response = await requestJSON("/api/scrape/csv", { method: "POST", body });
+        response = await requestJSON(endpoint, { method: "POST", body });
       }
 
       localStorage.setItem(ACTIVE_JOB_KEY, String(response.job_id));
@@ -347,6 +357,25 @@ function toUiLead(lead) {
     x: lead.twitter || "",
   };
 
+  const emailVerdicts = Array.isArray(lead.email_verdicts) ? lead.email_verdicts : [];
+  const verdictByEmail = {};
+  emailVerdicts.forEach(v => {
+    if (v && v.email) verdictByEmail[String(v.email).toLowerCase()] = v;
+  });
+  const firstEmail = emails[0] || "";
+  const firstVerdict = firstEmail ? verdictByEmail[firstEmail.toLowerCase()] : null;
+  const validCount = emailVerdicts.filter(v => v && v.valid).length;
+  const ai = {
+    checked: !!lead.ai_checked,
+    nameMatches: typeof lead.name_matches === "boolean" ? lead.name_matches : null,
+    note: lead.ai_note || "",
+    verdicts: emailVerdicts,
+    verdictByEmail,
+    firstValid: firstVerdict ? !!firstVerdict.valid : null,
+    firstReason: firstVerdict ? (firstVerdict.reason || "") : "",
+    validCount,
+  };
+
   return {
     id: lead.id,
     raw: lead,
@@ -356,12 +385,12 @@ function toUiLead(lead) {
     city: lead.address || "Location pending",
     domain: hostname || website || "",
     website,
-    email: emails[0] || "",
+    email: firstEmail,
     emails,
     phone: lead.phone || "",
     ceo: lead.ceo_name || "",
     ceoTitle: lead.ceo_name ? "Decision-maker" : "",
-    conf: confidenceForLead(lead),
+    conf: confidenceForLead(lead, ai),
     socials: socialUrls,
     source: sourcePages.length ? "Website crawl" : "Google Maps",
     sourcePages,
@@ -369,6 +398,7 @@ function toUiLead(lead) {
     error: lead.error || "",
     createdAt: lead.created_at,
     updatedAt: lead.updated_at,
+    ai,
   };
 }
 
@@ -382,8 +412,14 @@ function domainFromUrl(value) {
   }
 }
 
-function confidenceForLead(lead) {
+function confidenceForLead(lead, ai) {
   if (lead.status === "failed") return "low";
+  // AI-aware bump-down: any flagged email or name mismatch caps confidence.
+  if (ai && ai.checked) {
+    const flagged = (ai.verdicts || []).some(v => v && v.valid === false);
+    if (ai.nameMatches === false || flagged) return "low";
+    if (ai.nameMatches === true && ai.validCount > 0) return "high";
+  }
   if (lead.ceo_name && (lead.emails || []).length) return "high";
   if (lead.business_name || lead.website || (lead.emails || []).length) return "medium";
   return "low";
@@ -405,8 +441,13 @@ function stageForLead(lead) {
 function summarizeJob(job) {
   const firstUrl = job.leads?.[0]?.maps_url || job.leads?.[0]?.source_url || "";
   const mode = job.mode || job.kind;
+  const isWebsite = mode === "website_leads";
   if (mode === "single") return firstUrl || `Job ${job.id}`;
   if (mode === "csv") return `CSV import (${job.total} URLs)`;
+  if (isWebsite) {
+    if (job.total === 1) return firstUrl || `Job ${job.id}`;
+    return `Bulk Website URLs (${job.total})`;
+  }
   return `Bulk Maps URLs (${job.total})`;
 }
 

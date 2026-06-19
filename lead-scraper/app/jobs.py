@@ -14,9 +14,15 @@ from pydantic import BaseModel, Field
 
 from app.config import settings
 
-JobKind = Literal["maps", "website", "email", "facebook", "all"]
+JobKind = Literal["maps", "website", "email", "facebook", "all", "website_leads"]
 JobStatus = Literal["pending", "running", "done", "failed"]
 LeadStatus = Literal["pending", "running", "done", "failed", "partial"]
+
+
+class EmailVerdict(BaseModel):
+    email: str
+    valid: bool
+    reason: str = ""
 
 
 class Lead(BaseModel):
@@ -31,6 +37,12 @@ class Lead(BaseModel):
     status: LeadStatus = "pending"
     error: str | None = None
     elapsed_ms: int | None = None
+
+    # ---- AI verification ---------------------------------------------------
+    email_verdicts: list[EmailVerdict] = Field(default_factory=list)
+    name_matches: bool | None = None
+    ai_note: str | None = None
+    ai_checked: bool = False
 
 
 class Job(BaseModel):

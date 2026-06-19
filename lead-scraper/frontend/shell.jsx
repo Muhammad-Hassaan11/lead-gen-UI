@@ -91,6 +91,7 @@ function Header({ view, theme, toggleTheme }) {
 
 /* ---------- Search Panel ---------- */
 function SearchPanel({ onRun, running }) {
+  const [mode, setMode] = useState("maps");      // "maps" | "website"
   const [tab, setTab] = useState("single");
   const [single, setSingle] = useState("");
   const [bulkList, setBulkList] = useState("");
@@ -105,6 +106,25 @@ function SearchPanel({ onRun, running }) {
   ];
   const bulkUrls = bulkList.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
 
+  const isWebsite = mode === "website";
+  const noun = isWebsite ? "Website URL" : "Maps URL";
+  const nounPlural = isWebsite ? "Website URLs" : "Maps URLs";
+  const placeholder = isWebsite
+    ? "https://example.com"
+    : "https://www.google.com/maps/place/...";
+  const bulkPlaceholder = isWebsite
+    ? "Paste one business website per line\nhttps://example.com\nhttps://acme.co"
+    : "Paste one Google Maps URL per line\nhttps://www.google.com/maps/place/...\nhttps://maps.app.goo.gl/...";
+  const acceptedChips = isWebsite
+    ? ["https://", "example.com", "company.io"]
+    : ["google.com/maps", "maps.app.goo.gl", "goo.gl/maps"];
+  const csvHint = isWebsite
+    ? "Header row required with a website_url column - up to 200 URLs"
+    : "Header row required with a maps_url column - up to 200 URLs";
+  const subtitle = isWebsite
+    ? "Pull contacts directly from a business website"
+    : "Pull contacts from Maps URLs";
+
   const toggleOpt = (k) => setOpts(o => ({ ...o, [k]: !o[k] }));
 
   function handleFile(e) {
@@ -114,41 +134,75 @@ function SearchPanel({ onRun, running }) {
 
   function run() {
     if (tab === "single") {
-      onRun({ tab, summary: single.trim(), count: 1, mapsUrl: single.trim(), opts });
+      onRun({
+        tab, mode,
+        summary: single.trim(),
+        count: 1,
+        url: single.trim(),
+        mapsUrl: single.trim(),
+        opts,
+      });
     } else if (tab === "bulk") {
-      onRun({ tab, summary: `${bulkUrls.length} Maps URLs`, count: bulkUrls.length, mapsUrls: bulkUrls, opts });
+      onRun({
+        tab, mode,
+        summary: `${bulkUrls.length} ${nounPlural}`,
+        count: bulkUrls.length,
+        urls: bulkUrls,
+        mapsUrls: bulkUrls,
+        opts,
+      });
     } else {
-      onRun({ tab, summary: file ? file.name : "leads.csv", count: 0, file, opts });
+      onRun({
+        tab, mode,
+        summary: file ? file.name : "leads.csv",
+        count: 0, file, opts,
+      });
     }
   }
 
   const canRun = (tab === "single" && single.trim()) || (tab === "bulk" && bulkUrls.length > 0) || (tab === "csv" && file);
 
+  const sourceTabs = [
+    { key: "maps", icon: "globe", label: "Google Maps" },
+    { key: "website", icon: "external", label: "Website URL" },
+  ];
+
   return (
     <div className="panel">
       <div className="panel-head">
-        <div className="panel-title">New Search<span className="dim">Pull contacts from Maps URLs</span></div>
-        <div style={{ marginLeft: "auto" }} className="tabs">
-          {tabs.map(t => (
-            <button key={t.key} className={"tab" + (tab === t.key ? " active" : "")} onClick={() => setTab(t.key)}>
-              <Icon name={t.icon} size={15} /> {t.label}
-            </button>
-          ))}
+        <div className="panel-title">New Search<span className="dim">{subtitle}</span></div>
+        <div style={{ marginLeft: "auto", display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+          <div className="tabs" role="tablist" aria-label="Source">
+            {sourceTabs.map(s => (
+              <button key={s.key}
+                className={"tab" + (mode === s.key ? " active" : "")}
+                onClick={() => { setMode(s.key); setSingle(""); setBulkList(""); setFile(null); }}>
+                <Icon name={s.icon} size={15} /> {s.label}
+              </button>
+            ))}
+          </div>
+          <div className="tabs">
+            {tabs.map(t => (
+              <button key={t.key} className={"tab" + (tab === t.key ? " active" : "")} onClick={() => setTab(t.key)}>
+                <Icon name={t.icon} size={15} /> {t.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
       <div className="panel-body">
         {tab === "single" && (
           <div>
-            <div className="field-label"><Icon name="globe" size={13} /> Google Maps URL</div>
+            <div className="field-label"><Icon name="globe" size={13} /> {noun}</div>
             <div className="input-wrap">
               <span className="lead-ic"><Icon name="globe" size={16} /></span>
-              <input className="text-input has-ic" placeholder="https://www.google.com/maps/place/..."
+              <input className="text-input has-ic" placeholder={placeholder}
                 value={single} onChange={e => setSingle(e.target.value)} />
             </div>
             <div className="chip-row">
               <span style={{ fontSize: 12, color: "var(--text-faint)", alignSelf: "center", marginRight: 2 }}>Accepted:</span>
-              {["google.com/maps", "maps.app.goo.gl", "goo.gl/maps"].map(s => (
+              {acceptedChips.map(s => (
                 <span key={s} className="chip">{s}</span>
               ))}
             </div>
@@ -157,20 +211,14 @@ function SearchPanel({ onRun, running }) {
 
         {tab === "bulk" && (
           <div>
-            <div className="field-label"><Icon name="list" size={13} /> Maps URLs</div>
+            <div className="field-label"><Icon name="list" size={13} /> {nounPlural}</div>
             <div className="input-wrap">
-              <textarea className="text-input" placeholder={"Paste one Google Maps URL per line\nhttps://www.google.com/maps/place/...\nhttps://maps.app.goo.gl/..."}
+              <textarea className="text-input" placeholder={bulkPlaceholder}
                 value={bulkList} onChange={e => setBulkList(e.target.value)} />
             </div>
             <div className="chip-row">
               <span style={{ fontSize: 12, color: "var(--text-faint)", alignSelf: "center", marginRight: 2 }}>{bulkUrls.length} URL{bulkUrls.length === 1 ? "" : "s"} ready</span>
             </div>
-            {/*
-              v1.1 keyword search
-              const [bulkQuery, setBulkQuery] = useState("");
-              const [location, setLocation] = useState("");
-              UI: keyword + location fields that discover Maps listings before enrichment.
-            */}
           </div>
         )}
 
@@ -180,7 +228,7 @@ function SearchPanel({ onRun, running }) {
               <div className="dropzone" onClick={() => fileRef.current?.click()}>
                 <div className="dz-ic"><Icon name="upload" size={22} /></div>
                 <b>Drop a CSV or click to upload</b>
-                <p>Header row required with a maps_url column - up to 200 URLs</p>
+                <p>{csvHint}</p>
                 <input ref={fileRef} type="file" accept=".csv" hidden onChange={handleFile} />
               </div>
             ) : (
@@ -214,7 +262,7 @@ function SearchPanel({ onRun, running }) {
       <div className="panel-foot">
         <div className="foot-hint">
           <Icon name="bolt" size={14} style={{ color: "var(--warning)" }} />
-          {tab === "single" ? "1 Maps URL" : tab === "bulk" ? `${bulkUrls.length || 0} Maps URLs` : "CSV Maps import"}
+          {tab === "single" ? `1 ${noun}` : tab === "bulk" ? `${bulkUrls.length || 0} ${nounPlural}` : `CSV ${isWebsite ? "website" : "Maps"} import`}
         </div>
         <button className="btn btn-primary" onClick={run} disabled={running || !canRun}>
           {running ? "Running..." : <><Icon name="play" size={15} fill /> Run Search</>}
@@ -295,6 +343,10 @@ function historyTitle(job) {
   const mode = job.mode || job.kind;
   if (mode === "single") return job.leads?.[0]?.maps_url || job.leads?.[0]?.source_url || `Job ${job.id}`;
   if (mode === "csv") return `CSV import (${job.total} URLs)`;
+  if (mode === "website_leads") {
+    if (job.total === 1) return job.leads?.[0]?.source_url || `Job ${job.id}`;
+    return `Bulk Website URLs (${job.total})`;
+  }
   return `Bulk Maps URLs (${job.total})`;
 }
 

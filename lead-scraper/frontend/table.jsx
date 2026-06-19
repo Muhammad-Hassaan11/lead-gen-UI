@@ -45,6 +45,19 @@ function Confidence({ level }) {
   );
 }
 
+function AiBadge({ verdict, title }) {
+  // verdict: true | false | null  -> verified / flagged / pending
+  if (verdict === null || verdict === undefined) return null;
+  const cls = verdict ? "ai-ok" : "ai-bad";
+  const ic = verdict ? "check" : "x";
+  const tip = title || (verdict ? "AI verified" : "AI flagged");
+  return (
+    <span className={"ai-badge " + cls} title={tip}>
+      <Icon name={ic} size={10} sw={3} />
+    </span>
+  );
+}
+
 function Socials({ socials }) {
   return (
     <div className="socials">
@@ -157,14 +170,38 @@ function LeadsTable({ leads, selected, toggle, toggleAll, sort, setSort, onOpen,
                     <div className="co-cell">
                       <div className="co-logo" style={{ background: logoColor(l.name) }}>{initials(l.name)}</div>
                       <div>
-                        <div className="co-name">{l.name}</div>
+                        <div className="co-name">
+                          {l.name}
+                          {l.ai && l.ai.checked && (
+                            <AiBadge
+                              verdict={l.ai.nameMatches}
+                              title={l.ai.nameMatches === true
+                                ? `AI: name matches website${l.ai.note ? " - " + l.ai.note : ""}`
+                                : l.ai.nameMatches === false
+                                  ? `AI: name does NOT match${l.ai.note ? " - " + l.ai.note : ""}`
+                                  : "AI: name match unknown"}
+                            />
+                          )}
+                        </div>
                         <div className="co-cat">{l.cat} - {l.city}</div>
                       </div>
                     </div>
                   </td>
                   <td>
                     {l.email
-                      ? <a className="cell-link mono" onClick={e => { e.stopPropagation(); onCopy(l.email, "Email"); }} style={{ cursor: "copy" }}>{l.email}</a>
+                      ? (
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                          <a className="cell-link mono" onClick={e => { e.stopPropagation(); onCopy(l.email, "Email"); }} style={{ cursor: "copy" }}>{l.email}</a>
+                          {l.ai && l.ai.checked && (
+                            <AiBadge
+                              verdict={l.ai.firstValid}
+                              title={l.ai.firstValid
+                                ? `AI: email valid${l.ai.firstReason ? " - " + l.ai.firstReason : ""}`
+                                : `AI: email flagged${l.ai.firstReason ? " - " + l.ai.firstReason : ""}`}
+                            />
+                          )}
+                        </span>
+                      )
                       : <span className="cell-empty">-</span>}
                   </td>
                   <td><span className="cell-mono">{l.phone || "-"}</span></td>
@@ -290,6 +327,35 @@ function LeadDrawer({ lead, onClose, onCopy }) {
             </div>
           </div>
 
+          {lead.ai && lead.ai.checked && (
+            <div>
+              <div className="d-section-label">AI verification</div>
+              <div className="d-field">
+                <div className="d-field-ic"><Icon name={lead.ai.nameMatches === false ? "x" : "check"} size={16} /></div>
+                <div className="d-field-main">
+                  <div className="dfl">Business name vs. website</div>
+                  <div className="dfv">
+                    {lead.ai.nameMatches === true && "Match confirmed"}
+                    {lead.ai.nameMatches === false && "Likely mismatch"}
+                    {lead.ai.nameMatches === null && "Unverified"}
+                    {lead.ai.note && <div className="co-cat" style={{ marginTop: 4 }}>{lead.ai.note}</div>}
+                  </div>
+                </div>
+              </div>
+              {(lead.ai.verdicts || []).map((v, i) => (
+                <div className="d-field" key={i}>
+                  <div className="d-field-ic"><Icon name={v.valid ? "check" : "x"} size={16} /></div>
+                  <div className="d-field-main">
+                    <div className="dfl">Email check</div>
+                    <div className="dfv mono">{v.email}</div>
+                    {v.reason && <div className="co-cat" style={{ marginTop: 4 }}>{v.reason}</div>}
+                  </div>
+                  <AiBadge verdict={v.valid} title={v.valid ? "Valid" : "Flagged"} />
+                </div>
+              ))}
+            </div>
+          )}
+
           <div>
             <div className="d-section-label">How we found this</div>
             <div className="src-timeline">
@@ -330,4 +396,4 @@ function safeHttpUrl(value) {
   return `https://${value}`;
 }
 
-Object.assign(window, { Toolbar, LeadsTable, LeadDrawer, StatusPill, Confidence, Socials });
+Object.assign(window, { Toolbar, LeadsTable, LeadDrawer, StatusPill, Confidence, Socials, AiBadge });

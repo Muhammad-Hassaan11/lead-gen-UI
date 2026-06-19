@@ -32,6 +32,11 @@ class Settings(BaseSettings):
     # Job retention
     max_jobs_in_memory: int = 200
 
+    # Gemini AI verifier (free tier — https://aistudio.google.com)
+    gemini_api_key: str | None = None
+    gemini_model: str = "gemini-2.0-flash"
+    gemini_timeout_sec: float = 20.0
+
     # Legacy SQLite + Google Sheets pipeline used by CLI/tests
     db_path: Path = Path("data/prospector.db")
     google_sheet_id: str | None = None
